@@ -18,7 +18,7 @@ const int ledPin_LG =  12;  //left green
 
 void setup() 
  { 
-   randomSeed(analogRead(0));
+   randomSeed(analogRead(0)); /// nugno chtobi random bil nastoyachi
    
  pinMode(5, INPUT); 
  pinMode(6, INPUT); 
@@ -47,7 +47,7 @@ randomiseColor ();
  { 
  Serial.begin(9600);
 
- if(digitalRead(13)==HIGH)//если кнопка нажата ... 
+ if(digitalRead(13)==HIGH)//knopka 1 -pribavljaet +1 levomu
  { 
  Serial.println(i);
  if(i<8){i=i+1;};
@@ -56,7 +56,7 @@ randomiseColor ();
  delay(300);
  };
  
- if(digitalRead(6)==HIGH)//если кнопка нажата ... 
+ if(digitalRead(6)==HIGH)//knopka 2 -pribavlaet +1 srednemy
  { 
  Serial.println(k);
  if(k<8){k=k+1;};
@@ -64,8 +64,8 @@ randomiseColor ();
  colorFunction_led2(k);
  delay(300);
  };
- 
- if(digitalRead(5)==HIGH)//если кнопка нажата ... 
+  
+ if(digitalRead(5)==HIGH)//knopka 3 - listaet vlevo
  { 
 x=i;
 i=k;
@@ -77,19 +77,19 @@ j=x;
  delay(300);
  };
  
- if(i==k and i!=6){
+ if(i==k and i!=6){ //dve levie odinakovie vikluchit pravuu
    j=0;
    colorFunction_led3(j);
  };
  
-  if(j==0 and i==6 and k==6){
+if(j==0 and i==6 and k==6){ //vikluchit dve belie
    k=0;
    colorFunction_led2(k);
  };
  
-   if(k==j and k!=6){
-   i=0;
-   colorFunction_led1(i);
+if(k==j and k!=6){  //dve pravie odinakovie vikluchit levuu
+i=0;
+colorFunction_led1(i);
 };
  
  
